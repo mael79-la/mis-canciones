@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Biblioteca Musical</title>
-    <!-- Enlace al archivo CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,14 +14,16 @@
     </header>
 
     <main>
-        <!-- Aquí es donde el archivo JS meterá las canciones automáticamente -->
+        <!-- SECCIÓN NUEVA: Barra de búsqueda -->
+        <div class="contenedor-buscador">
+            <input type="text" id="buscador" placeholder="🔍 Buscar por título o artista...">
+        </div>
+
         <div id="lista-canciones" class="contenedor-canciones">
             <p class="cargando">Cargando catálogo musical...</p>
         </div>
     </main>
 
-    <!-- Enlace al archivo Javascript -->
     <script src="script.js"></script>
 </body>
 </html>
-
