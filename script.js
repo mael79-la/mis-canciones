@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "titulo": "Down Like That",
             "artista": "Mael",
             "archivo": "down-like-that.mp3", // <-- Corregido con "k" para que coincida perfectamente
-            "duracion": "0:03"
+            "duracion": "3:01"
         }
     ];
 
