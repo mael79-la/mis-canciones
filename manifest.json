@@ -1,9 +1,14 @@
 [
   {
-    "titulo": "Mi Primera Canción",
-    "artista": "Artista Ejemplo",
-    "archivo": "musica/cancion1.mp3",
-    "duracion": "3:45"
+    [
+  {
+    "titulo": "Hola",
+    "artista": "Mael",
+    "archivo": "hola.mp3",
+    "duracion": "0:03"
+  }
+]
+
   },
   {
     "titulo": "Segundo Tema",
