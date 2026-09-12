@@ -1,0 +1,109 @@
+/* Configuración General */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0f172a;
+    color: #f8fafc;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #1e1b4b 0%, #311042 100%);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    color: #38bdf8;
+}
+
+header p {
+    margin: 10px 0 0 0;
+    color: #94a3b8;
+}
+
+.contenedor-canciones {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Tarjeta de cada canción */
+.tarjeta-cancion {
+    background-color: #1e293b;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.tarjeta-cancion:hover {
+    transform: translateY(-2px);
+    background-color: #334155;
+}
+
+.info-cancion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.detalles {
+    display: flex;
+    flex-direction: column;
+}
+
+.titulo {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #f1f5f9;
+}
+
+.artista {
+    font-size: 0.95rem;
+    color: #38bdf8;
+}
+
+.duracion {
+    font-size: 0.85rem;
+    background-color: #0f172a;
+    padding: 4px 8px;
+    border-radius: 6px;
+    color: #94a3b8;
+}
+
+/* Reproductor y botón */
+audio {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.btn-descargar {
+    display: inline-block;
+    text-align: center;
+    background-color: #10b981;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 6px;
+    transition: background 0.2s;
+}
+
+.btn-descargar:hover {
+    background-color: #059669;
+}
+
+.cargando {
+    text-align: center;
+    color: #94a3b8;
+}
