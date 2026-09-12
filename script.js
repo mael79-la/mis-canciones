@@ -2,22 +2,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const contenedor = document.getElementById("lista-canciones");
     const buscador = document.getElementById("buscador");
     
-    let todasLasCanciones = [];
+    // Ponemos la lista de canciones directamente aquí dentro
+    const todasLasCanciones = [
+        {
+            "titulo": "Hola",
+            "artista": "Mael",
+            "archivo": "hola.mp3",
+            "duracion": "0:03"
+        }
+    ];
 
-    // Ahora buscamos el archivo correcto: canciones.json
-    fetch("./canciones.json")
-        .then(respuesta => {
-            if (!respuesta.ok) throw new Error("No se pudo leer canciones.json");
-            return respuesta.json();
-        })
-        .then(canciones => {
-            todasLasCanciones = canciones;
-            mostrarCanciones(todasLasCanciones);
-        })
-        .catch(error => {
-            console.error("Error detectado:", error);
-            contenedor.innerHTML = "<p class='cargando'>Error al cargar la música. Verifica el archivo canciones.json</p>";
-        });
+    // Mostramos la canción directamente al cargar la web
+    mostrarCanciones(todasLasCanciones);
 
     function mostrarCanciones(lista) {
         contenedor.innerHTML = "";
@@ -35,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="info-cancion">
                     <div class="detalles">
                         <span class="titulo">${cancion.titulo}</span>
-                        <span class="artista">${cancion.artista || 'Mael'}</span>
+                        <span class="artista">${cancion.artista}</span>
                     </div>
                     <span class="duracion">${cancion.duracion}</span>
                 </div>
@@ -48,11 +44,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // Lógica del buscador en tiempo real
     buscador.addEventListener("input", (evento) => {
         const textoBusqueda = evento.target.value.toLowerCase().trim();
         const cancionesFiltradas = todasLasCanciones.filter(cancion => {
             return cancion.titulo.toLowerCase().includes(textoBusqueda) || 
-                   (cancion.artista && cancion.artista.toLowerCase().includes(textoBusqueda));
+                   cancion.artista.toLowerCase().includes(textoBusqueda);
         });
         mostrarCanciones(cancionesFiltradas);
     });
