@@ -4,10 +4,10 @@ document.addEventListener("DOMContentLoaded", () => {
     
     let todasLasCanciones = [];
 
-    // Forzamos a que busque manifest.json de forma correcta
-    fetch("./manifest.json")
+    // Ahora buscamos el archivo correcto: canciones.json
+    fetch("./canciones.json")
         .then(respuesta => {
-            if (!respuesta.ok) throw new Error("No se pudo leer el archivo manifest.json");
+            if (!respuesta.ok) throw new Error("No se pudo leer canciones.json");
             return respuesta.json();
         })
         .then(canciones => {
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .catch(error => {
             console.error("Error detectado:", error);
-            contenedor.innerHTML = "<p class='cargando'>Error al cargar la música. Asegúrate de que manifest.json existe y está bien escrito.</p>";
+            contenedor.innerHTML = "<p class='cargando'>Error al cargar la música. Verifica el archivo canciones.json</p>";
         });
 
     function mostrarCanciones(lista) {
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="info-cancion">
                     <div class="detalles">
                         <span class="titulo">${cancion.titulo}</span>
-                        <span class="artista">${canclon.artista || 'Mael'}</span>
+                        <span class="artista">${cancion.artista || 'Mael'}</span>
                     </div>
                     <span class="duracion">${cancion.duracion}</span>
                 </div>
@@ -51,8 +51,8 @@ document.addEventListener("DOMContentLoaded", () => {
     buscador.addEventListener("input", (evento) => {
         const textoBusqueda = evento.target.value.toLowerCase().trim();
         const cancionesFiltradas = todasLasCanciones.filter(cancion => {
-            const coincideTitulo = cancion.titulo.toLowerCase().includes(textoBusqueda);
-            return coincideTitulo;
+            return cancion.titulo.toLowerCase().includes(textoBusqueda) || 
+                   (cancion.artista && cancion.artista.toLowerCase().includes(textoBusqueda));
         });
         mostrarCanciones(cancionesFiltradas);
     });
