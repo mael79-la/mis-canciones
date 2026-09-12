@@ -2,17 +2,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const contenedor = document.getElementById("lista-canciones");
     const buscador = document.getElementById("buscador");
     
-    // Ponemos la lista de canciones directamente aquí dentro
+    // Lista de canciones configurada con el nombre correcto de tu archivo
     const todasLasCanciones = [
         {
             "titulo": "Hola",
             "artista": "Mael",
             "archivo": "hola.mp3",
             "duracion": "0:03"
+        },
+        {
+            "titulo": "Down Like That",
+            "artista": "Mael",
+            "archivo": "down-like-that.mp3", // <-- Corregido con "k" para que coincida perfectamente
+            "duracion": "0:03"
         }
     ];
 
-    // Mostramos la canción directamente al cargar la web
     mostrarCanciones(todasLasCanciones);
 
     function mostrarCanciones(lista) {
@@ -44,7 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Lógica del buscador en tiempo real
     buscador.addEventListener("input", (evento) => {
         const textoBusqueda = evento.target.value.toLowerCase().trim();
         const cancionesFiltradas = todasLasCanciones.filter(cancion => {
