@@ -142,3 +142,10 @@ self.addEventListener('notificationclick', (event) => {
     clients.openWindow(event.notification.data?.url || '/mis-canciones/')
   );
 });
+const APP_SHELL = [
+  '/mis-canciones/',
+  '/mis-canciones/index.html',
+  '/mis-canciones/style.css',   // ← agregar si existe
+  '/mis-canciones/app.js',      // ← agregar si existe
+  ...
+];
