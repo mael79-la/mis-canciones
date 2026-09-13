@@ -5,11 +5,9 @@
   "start_url": "/mis-canciones/",
   "scope": "/mis-canciones/",
   "display": "standalone",
-  "orientation": "portrait-primary",
   "theme_color": "#1a1035",
   "background_color": "#0d0820",
   "lang": "es",
-  "categories": ["music", "entertainment"],
   "icons": [
     {
       "src": "/mis-canciones/icon-192.png",
