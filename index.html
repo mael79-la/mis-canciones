@@ -69,6 +69,39 @@
     deferredPrompt = null;
     document.getElementById('btn-instalar').style.display = 'none';
   });
+# 📋 Código para `index.html` — versión final
+
+## 1️⃣ Pega esto dentro del `<head>`:
+
+```html
+<!-- PWA -->
+<link rel="manifest" href="/mis-canciones/manifest.json" />
+<meta name="theme-color" content="#1a1035" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="MiBiblioteca" />
+<link rel="apple-touch-icon" href="/mis-canciones/icon-192.png" />
+```
+
+## 2️⃣ Pega esto antes del `</body>`:
+
+```html
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker
+        .register('/mis-canciones/sw.js', { scope: '/mis-canciones/' })
+        .then(r => console.log('[PWA] SW OK:', r.scope))
+        .catch(e => console.error('[PWA] Error:', e));
+    });
+  }
+</script>
+```
+
+## ✅ Archivos a reemplazar en el repo:
+- `manifest.json` → reemplazar con el nuevo
+- `sw.js` → reemplazar con el nuevo
 
   window.addEventListener('appinstalled', () => {
     console.log('[PWA] App instalada ✅');
